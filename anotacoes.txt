@@ -1,0 +1,66 @@
+babel / webpack {
+    babel {
+        > pega funcionalidades do novo JS e converte de uma maneira que o browser entenda
+        > exemplo: classes no javascript, o browser nao entende isso, entao se usa o babel para ele converter esse codigo para o broser entender
+    }
+    webpack {
+        > cria o bundle, onde todo o codigo JS da aplicação se encontra
+        > 'ensina' ao javascript, como importar css,imagens e etc...
+        > live reload webpack dev server
+    }
+}
+
+iniciando {
+    $ yarn init -y
+    $ yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli -D
+    $ yarn add react react-dom
+}
+
+configurando babel {
+    > cria-se um arquivo babel.config.js ( veja o arquivo )
+}
+
+configurando webpack {
+    > $ yarn add webpack-dev-server -D
+    > cria-se um arquivo webpack.config.js ( veja o arquivo )
+    > cria-se um "script" no package.json, >> "build": "webpack --mode production"
+    > apos adicionar o webpack-dev-server, cria-se um novo script,>> "dev": "webpack-dev-server --mode development"
+    --mode do webpack {
+        webpack --mode development, significa que vai gerar um arquivo mais legivel, para ambiente de desenvolvimento
+        webpack --mode production, gera um arquivo mais leve e inlegivel, que vai para produção
+    }
+}
+
+estrutura de pastas inicial {
+    > cria-se uma pasta src, e dentro cria-se um arquivo index.js
+}
+
+css dentro do webpack {
+    > $ yarn add style-loader css-loader -D
+    > ir em webpack.config.js, e adicionar uma nova rule ( ver arquivo )
+}
+
+imagens dentro do webpack {
+    > $ yarn add file-loader -D
+    > ir em webpack.config.js, e adicionar uma nova rule ( ver arquivo )
+}
+
+componentes {
+    > variaveis que um componente manipula é chamada de estado
+    > quando se guarda/manipula informações dentro de componentes do react, utiliza-se o estado(state)
+    > TODO ESTADO NO REACT É IMUTAVEL
+    > é OBRIGATORIO o nome 'state' para guardar os estados dentro desse objeto
+    > ao utilizar/declarar estados fora do contrutor, é necessario instalar "$ yarn add @babel/plugin-proposal-class-properties", pois o babel nao sabe oque é 'state' fora do construtor
+    > apos isso, adicione esse plugin em babel.config.js ( veja o arquivo )
+    > <> </>, sao tags sem nome, muito util quando se quer agrupar tags/componentes juntos
+    > manipulando valores dentro de inputs {
+        > cria-se uma nova chave no 'state' 
+        > cria-se um metodo para manipular esse valor ( necessario ser o metoto ser uma ARROW FUNCTION)
+        > atribua o metodo criado com o evento 'onChange' no input
+        > dentro da arrow function, usa-se o metodo setState para manipular o estado
+        > adicione um atributo 'value' no input , é o valor de 'value' é o estado no objeto que ele mesmo esta manipulando
+    }
+    > ATENÇÃO para 'chamar' as funçõesme botoes, cria-se uma arrow function, com a funcao que é para ser chamada
+    > ex: onClick={() => this.minhaFuncao()}
+    
+}

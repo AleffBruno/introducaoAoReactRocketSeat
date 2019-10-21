@@ -62,5 +62,21 @@ componentes {
     }
     > ATENÇÃO para 'chamar' as funçõesme botoes, cria-se uma arrow function, com a funcao que é para ser chamada
     > ex: onClick={() => this.minhaFuncao()}
-    
+    > propriedade é tudo que se passa pro componente dentro da tag ( ex: <meuComponente myProp={'hue'} >)
+    > para recuperar a propriedade no 'outro' component, é necessario acessar props.nomeDaProp || this.props.nodeDaProp
+    > funcoes que existe dentro de componentes 'filhos' tambem é necessario ser passados como propriedade (ex: onDelete={() => this.handleDelete(tech)} , dentro do componente filho, usa-sa props.onDelete)
+    > pode-se passar qualquer coisa como propriedade para outro componente ( tipo classes,funcoes,variaveis, outros componentes e etc...)
+    > props podem ter valores default, declara-se fora do componente: NomeDoComponente.defaultProps = {propKey: propValue}, VALIDO SOMENTE PARA COMPONENTES DE FUNÇÃO, dentro de componentes de classes, fica em static defaultProps = {propKey: propValue}
+}
+
+proptypes {
+    $ yarn add prop-types
+    > props types servem como uma 'interface' para o componente, para mostrar ao desenvolvedor quais propriedades aquele componente recebe ( ver exemplo em TechItem.js )
+    > propTypes sao escritas de maneiras diferentes em componentes de classes e funcoes
+}
+
+ciclos de vida / lifeCycles {
+    > componentDidMount : executa assim que o componente aparece na tela
+    > componentDidUpdate(oldProps,oldState) : executa sempre que tem alteração nas props ou estado
+    > componentWillUnmount : executando quando o componente deixa de existir
 }
